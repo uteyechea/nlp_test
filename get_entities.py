@@ -10,3 +10,4 @@ data = {"sentences": [
 response = requests.post(url, json=data)
 
 print(response.json())
+

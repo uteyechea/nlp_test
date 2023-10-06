@@ -7,4 +7,3 @@ dependencies:
   - flask
   - jupyterlab
   - spacy-model-es_core_news_sm
-prefix: C:\Users\uteye\miniconda3\envs\nlp_test
