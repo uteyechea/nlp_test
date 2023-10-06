@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 import spacy
+from utils import clean_text
 
 # Inicializa una nueva aplicación Flask
 app = Flask(__name__)
@@ -21,7 +22,9 @@ def recognize_entities():
 
     # Recorre cada oración y reconoce las entidades
     for sentence in sentences:
-        doc = nlp(sentence)
+        clean_sentence = clean_text.run(sentence)
+        print(clean_sentence)
+        doc = nlp(clean_sentence)
         entities = {ent.text: ent.label_ for ent in doc.ents}
         results.append({'oración': sentence, 'entidades': entities})
 
@@ -30,4 +33,4 @@ def recognize_entities():
 
 if __name__ == '__main__':
     app.run(debug=True)
-    
+
