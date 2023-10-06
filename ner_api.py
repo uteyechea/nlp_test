@@ -23,7 +23,6 @@ def recognize_entities():
     # Recorre cada oración y reconoce las entidades
     for sentence in sentences:
         clean_sentence = clean_text.run(sentence)
-        print(clean_sentence)
         doc = nlp(clean_sentence)
         entities = {ent.text: ent.label_ for ent in doc.ents}
         results.append({'oración': sentence, 'entidades': entities})
